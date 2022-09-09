@@ -1,0 +1,50 @@
+entity ClientAccount {
+	fullName String
+    mainAddress String
+    logoUrl String
+    isDeleted Boolean
+    
+}
+
+entity Restorant {
+    lat String
+    lang String
+    isActive Boolean
+    isDeleted Boolean
+    logoUrl String
+    fbUrl String
+    instaUrl String
+    twitterUrl String
+    youtubeUrl String
+    googleUrl String
+     
+}
+
+@embedded
+entity RestorantName{
+	langCode String
+	name String
+}
+@embedded
+entity AvailableLang{
+	code String
+}
+
+
+entity Country {
+	countryName String
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	ClientAccount to Restorant{account},
+    Restorant to RestorantName,
+     Restorant  to AvailableLang,
+    Country to Restorant{Country(name)}
+}
+
+ 
+
+// Set pagination options
+paginate Restorant, ClientAccount with pagination
+
