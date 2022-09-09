@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20220909162106",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "client_account",
+  "fields": [
+    {
+      "fieldName": "fullName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mainAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "logoUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isDeleted",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ClientAccount",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "restorant",
+      "otherEntityRelationshipName": "account",
+      "relationshipName": "restorant",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

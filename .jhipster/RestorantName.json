@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20220909162108",
+  "dto": "no",
+  "embedded": true,
+  "entityTableName": "restorant_name",
+  "fields": [
+    {
+      "fieldName": "langCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "RestorantName",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "restorant",
+      "otherEntityRelationshipName": "restorantName",
+      "relationshipName": "restorant",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}
