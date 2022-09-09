@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "changelogDate": "20220909162158",
+  "dto": "no",
+  "embedded": true,
+  "entityTableName": "available_lang",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "AvailableLang",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "restorant",
+      "otherEntityRelationshipName": "availableLang",
+      "relationshipName": "restorant",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}
