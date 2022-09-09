@@ -172,12 +172,21 @@ public class RestorantResource {
      * {@code GET  /restorants} : get all the restorants.
      *
      * @param pageable the pagination information.
+     * @param eagerload flag to eager load entities from relationships (This is applicable for many-to-many).
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of restorants in body.
      */
     @GetMapping("/restorants")
-    public ResponseEntity<List<Restorant>> getAllRestorants(@org.springdoc.api.annotations.ParameterObject Pageable pageable) {
+    public ResponseEntity<List<Restorant>> getAllRestorants(
+        @org.springdoc.api.annotations.ParameterObject Pageable pageable,
+        @RequestParam(required = false, defaultValue = "false") boolean eagerload
+    ) {
         log.debug("REST request to get a page of Restorants");
-        Page<Restorant> page = restorantRepository.findAll(pageable);
+        Page<Restorant> page;
+        if (eagerload) {
+            page = restorantRepository.findAllWithEagerRelationships(pageable);
+        } else {
+            page = restorantRepository.findAll(pageable);
+        }
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
@@ -191,7 +200,7 @@ public class RestorantResource {
     @GetMapping("/restorants/{id}")
     public ResponseEntity<Restorant> getRestorant(@PathVariable String id) {
         log.debug("REST request to get Restorant : {}", id);
-        Optional<Restorant> restorant = restorantRepository.findById(id);
+        Optional<Restorant> restorant = restorantRepository.findOneWithEagerRelationships(id);
         return ResponseUtil.wrapOrNotFound(restorant);
     }
 

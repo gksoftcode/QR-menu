@@ -30,7 +30,6 @@ entity AvailableLang{
 	code String
 }
 
-@embedded
 entity Country {
 	countryName String
 }
@@ -40,9 +39,10 @@ relationship OneToMany {
 	ClientAccount to Restorant{account},
     Restorant to RestorantName,
      Restorant  to AvailableLang,
-    Country to Restorant{Country(countryName)}
+ }
+relationship ManyToOne{
+Restorant{Country(countryName)} to Country
 }
-
  
 
 // Set pagination options

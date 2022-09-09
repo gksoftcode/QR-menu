@@ -1,7 +1,7 @@
 import { IRestorantName } from 'app/shared/model/restorant-name.model';
 import { IAvailableLang } from 'app/shared/model/available-lang.model';
-import { IClientAccount } from 'app/shared/model/client-account.model';
 import { ICountry } from 'app/shared/model/country.model';
+import { IClientAccount } from 'app/shared/model/client-account.model';
 
 export interface IRestorant {
   id?: string;
@@ -17,8 +17,8 @@ export interface IRestorant {
   googleUrl?: string | null;
   restorantNames?: IRestorantName[] | null;
   availableLangs?: IAvailableLang[] | null;
-  account?: IClientAccount | null;
   country?: ICountry | null;
+  account?: IClientAccount | null;
 }
 
 export const defaultValue: Readonly<IRestorant> = {

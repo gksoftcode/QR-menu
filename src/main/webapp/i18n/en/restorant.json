@@ -30,8 +30,8 @@
       "googleUrl": "Google Url",
       "restorantName": "Restorant Name",
       "availableLang": "Available Lang",
-      "account": "Account",
-      "country": "Country"
+      "country": "Country",
+      "account": "Account"
     }
   }
 }

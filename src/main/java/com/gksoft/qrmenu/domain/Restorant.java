@@ -60,12 +60,13 @@ public class Restorant implements Serializable {
     private Set<AvailableLang> availableLangs = new HashSet<>();
 
     @DBRef
+    @Field("country")
+    private Country country;
+
+    @DBRef
     @Field("account")
     @JsonIgnoreProperties(value = { "restorants" }, allowSetters = true)
     private ClientAccount account;
-
-    @JsonIgnoreProperties(value = { "restorants" }, allowSetters = true)
-    private Country country;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -270,19 +271,6 @@ public class Restorant implements Serializable {
         return this;
     }
 
-    public ClientAccount getAccount() {
-        return this.account;
-    }
-
-    public void setAccount(ClientAccount clientAccount) {
-        this.account = clientAccount;
-    }
-
-    public Restorant account(ClientAccount clientAccount) {
-        this.setAccount(clientAccount);
-        return this;
-    }
-
     public Country getCountry() {
         return this.country;
     }
@@ -293,6 +281,19 @@ public class Restorant implements Serializable {
 
     public Restorant country(Country country) {
         this.setCountry(country);
+        return this;
+    }
+
+    public ClientAccount getAccount() {
+        return this.account;
+    }
+
+    public void setAccount(ClientAccount clientAccount) {
+        this.account = clientAccount;
+    }
+
+    public Restorant account(ClientAccount clientAccount) {
+        this.setAccount(clientAccount);
         return this;
     }
 
@@ -330,7 +331,6 @@ public class Restorant implements Serializable {
             ", twitterUrl='" + getTwitterUrl() + "'" +
             ", youtubeUrl='" + getYoutubeUrl() + "'" +
             ", googleUrl='" + getGoogleUrl() + "'" +
-            ", country='" + getCountry() + "'" +
             "}";
     }
 }
