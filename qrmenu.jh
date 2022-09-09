@@ -40,7 +40,7 @@ relationship OneToMany {
 	ClientAccount to Restorant{account},
     Restorant to RestorantName,
      Restorant  to AvailableLang,
-    Country to Restorant{Country(name)}
+    Country to Restorant{Country(countryName)}
 }
 
  

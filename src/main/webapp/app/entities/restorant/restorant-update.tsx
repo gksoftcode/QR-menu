@@ -182,7 +182,7 @@ export const RestorantUpdate = () => {
                 {countries
                   ? countries.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.name}
+                        {otherEntity.countryName}
                       </option>
                     ))
                   : null}

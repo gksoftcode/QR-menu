@@ -71,7 +71,7 @@
       "relationshipType": "many-to-one"
     },
     {
-      "otherEntityField": "name",
+      "otherEntityField": "countryName",
       "otherEntityName": "country",
       "otherEntityRelationshipName": "restorant",
       "relationshipName": "country",

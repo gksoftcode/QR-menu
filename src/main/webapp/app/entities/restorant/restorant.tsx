@@ -163,7 +163,7 @@ export const Restorant = () => {
                   <td>{restorant.youtubeUrl}</td>
                   <td>{restorant.googleUrl}</td>
                   <td>{restorant.account ? <Link to={`/client-account/${restorant.account.id}`}>{restorant.account.id}</Link> : ''}</td>
-                  <td>{restorant.country ? <Link to={`/country/${restorant.country.id}`}>{restorant.country.name}</Link> : ''}</td>
+                  <td>{restorant.country ? <Link to={`/country/${restorant.country.id}`}>{restorant.country.countryName}</Link> : ''}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`/restorant/${restorant.id}`} color="info" size="sm" data-cy="entityDetailsButton">
