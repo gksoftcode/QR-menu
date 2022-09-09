@@ -65,16 +65,15 @@
       "relationshipType": "one-to-many"
     },
     {
-      "otherEntityName": "clientAccount",
-      "otherEntityRelationshipName": "restorant",
-      "relationshipName": "account",
+      "otherEntityField": "countryName",
+      "otherEntityName": "country",
+      "relationshipName": "country",
       "relationshipType": "many-to-one"
     },
     {
-      "otherEntityField": "countryName",
-      "otherEntityName": "country",
+      "otherEntityName": "clientAccount",
       "otherEntityRelationshipName": "restorant",
-      "relationshipName": "country",
+      "relationshipName": "account",
       "relationshipType": "many-to-one"
     }
   ],

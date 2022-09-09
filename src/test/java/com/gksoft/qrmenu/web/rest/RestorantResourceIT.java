@@ -2,18 +2,26 @@ package com.gksoft.qrmenu.web.rest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import com.gksoft.qrmenu.IntegrationTest;
 import com.gksoft.qrmenu.domain.Restorant;
 import com.gksoft.qrmenu.repository.RestorantRepository;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
@@ -22,6 +30,7 @@ import org.springframework.test.web.servlet.MockMvc;
  * Integration tests for the {@link RestorantResource} REST controller.
  */
 @IntegrationTest
+@ExtendWith(MockitoExtension.class)
 @AutoConfigureMockMvc
 @WithMockUser
 class RestorantResourceIT {
@@ -61,6 +70,9 @@ class RestorantResourceIT {
 
     @Autowired
     private RestorantRepository restorantRepository;
+
+    @Mock
+    private RestorantRepository restorantRepositoryMock;
 
     @Autowired
     private MockMvc restRestorantMockMvc;
@@ -177,6 +189,23 @@ class RestorantResourceIT {
             .andExpect(jsonPath("$.[*].twitterUrl").value(hasItem(DEFAULT_TWITTER_URL)))
             .andExpect(jsonPath("$.[*].youtubeUrl").value(hasItem(DEFAULT_YOUTUBE_URL)))
             .andExpect(jsonPath("$.[*].googleUrl").value(hasItem(DEFAULT_GOOGLE_URL)));
+    }
+
+    @SuppressWarnings({ "unchecked" })
+    void getAllRestorantsWithEagerRelationshipsIsEnabled() throws Exception {
+        when(restorantRepositoryMock.findAllWithEagerRelationships(any())).thenReturn(new PageImpl(new ArrayList<>()));
+
+        restRestorantMockMvc.perform(get(ENTITY_API_URL + "?eagerload=true")).andExpect(status().isOk());
+
+        verify(restorantRepositoryMock, times(1)).findAllWithEagerRelationships(any());
+    }
+
+    @SuppressWarnings({ "unchecked" })
+    void getAllRestorantsWithEagerRelationshipsIsNotEnabled() throws Exception {
+        when(restorantRepositoryMock.findAllWithEagerRelationships(any())).thenReturn(new PageImpl(new ArrayList<>()));
+
+        restRestorantMockMvc.perform(get(ENTITY_API_URL + "?eagerload=false")).andExpect(status().isOk());
+        verify(restorantRepositoryMock, times(1)).findAll(any(Pageable.class));
     }
 
     @Test

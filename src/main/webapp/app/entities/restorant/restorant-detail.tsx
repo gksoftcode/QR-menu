@@ -93,13 +93,13 @@ export const RestorantDetail = () => {
           </dt>
           <dd>{restorantEntity.googleUrl}</dd>
           <dt>
-            <Translate contentKey="qrMenuApp.restorant.account">Account</Translate>
-          </dt>
-          <dd>{restorantEntity.account ? restorantEntity.account.id : ''}</dd>
-          <dt>
             <Translate contentKey="qrMenuApp.restorant.country">Country</Translate>
           </dt>
           <dd>{restorantEntity.country ? restorantEntity.country.countryName : ''}</dd>
+          <dt>
+            <Translate contentKey="qrMenuApp.restorant.account">Account</Translate>
+          </dt>
+          <dd>{restorantEntity.account ? restorantEntity.account.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/restorant" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

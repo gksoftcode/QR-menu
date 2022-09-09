@@ -35,7 +35,7 @@ public class ClientAccount implements Serializable {
 
     @DBRef
     @Field("restorant")
-    @JsonIgnoreProperties(value = { "restorantNames", "availableLangs", "account", "country" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "restorantNames", "availableLangs", "country", "account" }, allowSetters = true)
     private Set<Restorant> restorants = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

@@ -2,7 +2,7 @@
   "applications": "*",
   "changelogDate": "20220909162159",
   "dto": "no",
-  "embedded": true,
+  "embedded": false,
   "entityTableName": "country",
   "fields": [
     {
@@ -15,13 +15,6 @@
   "name": "Country",
   "pagination": "no",
   "readOnly": false,
-  "relationships": [
-    {
-      "otherEntityName": "restorant",
-      "otherEntityRelationshipName": "country",
-      "relationshipName": "restorant",
-      "relationshipType": "one-to-many"
-    }
-  ],
+  "relationships": [],
   "service": "no"
 }

@@ -18,7 +18,7 @@ public class AvailableLang implements Serializable {
 
     @DBRef
     @Field("restorant")
-    @JsonIgnoreProperties(value = { "restorantNames", "availableLangs", "account", "country" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "restorantNames", "availableLangs", "country", "account" }, allowSetters = true)
     private Restorant restorant;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

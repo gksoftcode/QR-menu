@@ -8,6 +8,8 @@ import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateT
 import { mapIdList } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
+import { ICountry } from 'app/shared/model/country.model';
+import { getEntities as getCountries } from 'app/entities/country/country.reducer';
 import { IClientAccount } from 'app/shared/model/client-account.model';
 import { getEntities as getClientAccounts } from 'app/entities/client-account/client-account.reducer';
 import { IRestorant } from 'app/shared/model/restorant.model';
@@ -21,6 +23,7 @@ export const RestorantUpdate = () => {
   const { id } = useParams<'id'>();
   const isNew = id === undefined;
 
+  const countries = useAppSelector(state => state.country.entities);
   const clientAccounts = useAppSelector(state => state.clientAccount.entities);
   const restorantEntity = useAppSelector(state => state.restorant.entity);
   const loading = useAppSelector(state => state.restorant.loading);
@@ -38,6 +41,7 @@ export const RestorantUpdate = () => {
       dispatch(getEntity(id));
     }
 
+    dispatch(getCountries({}));
     dispatch(getClientAccounts({}));
   }, []);
 
@@ -51,6 +55,7 @@ export const RestorantUpdate = () => {
     const entity = {
       ...restorantEntity,
       ...values,
+      country: countries.find(it => it.id.toString() === values.country.toString()),
       account: clientAccounts.find(it => it.id.toString() === values.account.toString()),
     };
 
@@ -66,8 +71,8 @@ export const RestorantUpdate = () => {
       ? {}
       : {
           ...restorantEntity,
-          account: restorantEntity?.account?.id,
           country: restorantEntity?.country?.id,
+          account: restorantEntity?.account?.id,
         };
 
   return (
@@ -156,22 +161,6 @@ export const RestorantUpdate = () => {
                 type="text"
               />
               <ValidatedField
-                id="restorant-account"
-                name="account"
-                data-cy="account"
-                label={translate('qrMenuApp.restorant.account')}
-                type="select"
-              >
-                <option value="" key="0" />
-                {clientAccounts
-                  ? clientAccounts.map(otherEntity => (
-                      <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
-                      </option>
-                    ))
-                  : null}
-              </ValidatedField>
-              <ValidatedField
                 id="restorant-country"
                 name="country"
                 data-cy="country"
@@ -183,6 +172,22 @@ export const RestorantUpdate = () => {
                   ? countries.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.countryName}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="restorant-account"
+                name="account"
+                data-cy="account"
+                label={translate('qrMenuApp.restorant.account')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {clientAccounts
+                  ? clientAccounts.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
                       </option>
                     ))
                   : null}

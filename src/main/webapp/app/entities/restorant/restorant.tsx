@@ -136,10 +136,10 @@ export const Restorant = () => {
                   <Translate contentKey="qrMenuApp.restorant.googleUrl">Google Url</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="qrMenuApp.restorant.account">Account</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="qrMenuApp.restorant.country">Country</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="qrMenuApp.restorant.country">Country</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="qrMenuApp.restorant.account">Account</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -162,8 +162,8 @@ export const Restorant = () => {
                   <td>{restorant.twitterUrl}</td>
                   <td>{restorant.youtubeUrl}</td>
                   <td>{restorant.googleUrl}</td>
-                  <td>{restorant.account ? <Link to={`/client-account/${restorant.account.id}`}>{restorant.account.id}</Link> : ''}</td>
                   <td>{restorant.country ? <Link to={`/country/${restorant.country.id}`}>{restorant.country.countryName}</Link> : ''}</td>
+                  <td>{restorant.account ? <Link to={`/client-account/${restorant.account.id}`}>{restorant.account.id}</Link> : ''}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`/restorant/${restorant.id}`} color="info" size="sm" data-cy="entityDetailsButton">
