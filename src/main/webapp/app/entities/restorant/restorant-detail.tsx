@@ -99,7 +99,7 @@ export const RestorantDetail = () => {
           <dt>
             <Translate contentKey="qrMenuApp.restorant.country">Country</Translate>
           </dt>
-          <dd>{restorantEntity.country ? restorantEntity.country.name : ''}</dd>
+          <dd>{restorantEntity.country ? restorantEntity.country.countryName : ''}</dd>
         </dl>
         <Button tag={Link} to="/restorant" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}
