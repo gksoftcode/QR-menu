@@ -1,0 +1,75 @@
+{
+  "applications": "*",
+  "changelogDate": "20220909161655",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "restorant",
+  "fields": [
+    {
+      "fieldName": "lat",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lang",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isDeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "logoUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fbUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "instaUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "twitterUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "youtubeUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "googleUrl",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Restorant",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "restorantName",
+      "otherEntityRelationshipName": "restorant",
+      "relationshipName": "restorantName",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "availableLang",
+      "otherEntityRelationshipName": "restorant",
+      "relationshipName": "availableLang",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "clientAccount",
+      "otherEntityRelationshipName": "restorant",
+      "relationshipName": "account",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,25 @@
+{
+  "qrMenuApp": {
+    "restorantName": {
+      "home": {
+        "title": "Restorant Names",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Restorant Name",
+        "createOrEditLabel": "Create or edit a Restorant Name",
+        "notFound": "No Restorant Names found"
+      },
+      "created": "A new Restorant Name is created with identifier {{ param }}",
+      "updated": "A Restorant Name is updated with identifier {{ param }}",
+      "deleted": "A Restorant Name is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Restorant Name {{ id }}?"
+      },
+      "detail": {
+        "title": "Restorant Name"
+      },
+      "langCode": "Lang Code",
+      "name": "Name",
+      "restorant": "Restorant"
+    }
+  }
+}

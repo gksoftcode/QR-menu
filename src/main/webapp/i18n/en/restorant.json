@@ -1,0 +1,36 @@
+{
+  "qrMenuApp": {
+    "restorant": {
+      "home": {
+        "title": "Restorants",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Restorant",
+        "createOrEditLabel": "Create or edit a Restorant",
+        "notFound": "No Restorants found"
+      },
+      "created": "A new Restorant is created with identifier {{ param }}",
+      "updated": "A Restorant is updated with identifier {{ param }}",
+      "deleted": "A Restorant is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Restorant {{ id }}?"
+      },
+      "detail": {
+        "title": "Restorant"
+      },
+      "id": "ID",
+      "lat": "Lat",
+      "lang": "Lang",
+      "isActive": "Is Active",
+      "isDeleted": "Is Deleted",
+      "logoUrl": "Logo Url",
+      "fbUrl": "Fb Url",
+      "instaUrl": "Insta Url",
+      "twitterUrl": "Twitter Url",
+      "youtubeUrl": "Youtube Url",
+      "googleUrl": "Google Url",
+      "restorantName": "Restorant Name",
+      "availableLang": "Available Lang",
+      "account": "Account"
+    }
+  }
+}
